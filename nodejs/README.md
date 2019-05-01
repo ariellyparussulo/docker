@@ -10,7 +10,7 @@ To use this docker container you must run the following command line:
 
 ```bash
      # build the Dockerfile instructions and generate a image called nodejs/webapp
-     docker build -t nodejs/webapp
+     docker build -t nodejs/webapp .
     # run the docker image create openning the 8080 port to use the API
      docker run -p 8080:8080 -t nodejs/webapp
 ```

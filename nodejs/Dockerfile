@@ -5,10 +5,13 @@ FROM node:alpine
 WORKDIR /opt/node_app/
 
 # copy code into container
-COPY . .
+COPY ./package.json ./
 
 # install dependencies from package.json
 RUN npm install
+
+# copying project files into container
+COPY ./ ./
 
 # expose 8080 port
 EXPOSE 8080
