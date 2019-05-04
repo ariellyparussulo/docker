@@ -17,6 +17,10 @@ function getVisits(res) {
             return
         }
 
+        if(!visits) {
+            visits = 0
+        }
+
         res.send(`Number of visits is ${visits}`)
         updateeNumberOfVisits(visits)
     })
@@ -25,12 +29,6 @@ function getVisits(res) {
 function updateeNumberOfVisits(visits) {
     client.set(REDIS_VISITS, parseInt(visits) + 1)
 }
-
-client.get(REDIS_VISITS, (err, visits) => {
-    if(!visits) {
-        client.set(REDIS_VISITS, 0)
-    }
-})
 
 app.get('/', (req, res) => {
     getVisits(res)
