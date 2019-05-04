@@ -10,7 +10,6 @@ const client = redis.createClient({
 
 const REDIS_VISITS = 'visits'
 
-
 function getVisits(res) {
     client.get(REDIS_VISITS, (err, visits) => {
         if (err) {
@@ -24,8 +23,14 @@ function getVisits(res) {
 }
 
 function updateeNumberOfVisits(visits) {
-    client.setget(REDIS_VISITS, parseInt(visits) + 1)
+    client.set(REDIS_VISITS, parseInt(visits) + 1)
 }
+
+client.get(REDIS_VISITS, (err, visits) => {
+    if(!visits) {
+        client.set(REDIS_VISITS, 0)
+    }
+})
 
 app.get('/', (req, res) => {
     getVisits(res)
