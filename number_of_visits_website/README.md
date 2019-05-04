@@ -1,6 +1,6 @@
 # Main goal
 
-This application counts the number of users that accessed this application using a nodeJS application and a redis server.
+This shows the amount of users that accessed this application using a nodeJS application and a redis server.
 
 ## Instructions
 
