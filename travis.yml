@@ -1,9 +1,0 @@
-sudo: required
-services:
-  - docker
-
-before_install:
-  - docker build -f react/frontend/Dockerfile.dev -t docker-react
-
-script:
-  - docker run docker-react npm run test -- --coverage
