@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Browser as Router, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import OtherPage from './OtherPage';
 import Fib from './Fib';
 

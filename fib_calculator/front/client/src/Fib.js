@@ -3,7 +3,7 @@ import axios from 'axios'
 
 class Fib extends Component {
     state = {
-        seenIndex: [],
+        seenIndexes: [],
         values: {},
         index: ''
     }
@@ -38,17 +38,20 @@ class Fib extends Component {
     }
 
     renderSeenIndexes() {
-        return this.stage.seemIndexes.map(({ number }) => number).join(', ')
+        return this.state.seenIndexes.map(({ number }) => number).join(',')
     }
 
     renderValues() {
         const entries = []
 
         for (let key in this.state.values) {
-            <div key={key}>
-                For index {key} I Calculated {this.state.values[key]}
-            </div>
+            entries.push(
+                <div key={key}>
+                    For index {key} I Calculated {this.state.values[key]}
+                </div>
+            )
         }
+        return entries
     }
 
     componentDidMount() {
